@@ -110,3 +110,17 @@ with:
 Once done, the floppy image can be easily generated on Linux with:
 
     ./create-autounattend-floppy.sh
+
+
+
+
+#### To set password
+
+You should pass powershell script with user password using UserData
+
+#ps1
+$pass = "P@ssw0rd"
+$user = "Admin"
+$hostname = hostname
+$newpass = [ADSI]"WinNT://$hostname/$user,user"
+$newpass.SetPassword($pass)
